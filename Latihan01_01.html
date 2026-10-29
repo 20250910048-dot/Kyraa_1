@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Biodata dan cerita singkat keluarga kami.">
+    <title>Biodata Keluarga</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --ink: #202b28;
+            --muted: #68736e;
+            --paper: #f7f8f4;
+            --green: #356b55;
+            --green-dark: #254b3d;
+            --line: #e1e8df;
+            --orange: #c56c43;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.65;
+        } 
+
+        .intro {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+            min-height: 520px;
+            background: linear-gradient(135deg, #f0f3eb, #e5ece3);
+        }
+
+        .intro-copy {
+            align-self: center;
+            max-width: 760px;
+            padding: 64px clamp(24px, 8vw, 112px);
+            animation: fade-in 700ms ease both;
+        }
+
+        .eyebrow {
+            margin: 0 0 14px;
+            color: var(--green);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        h1, h2, h3, p { margin-top: 0; }
+
+        h1 {
+            max-width: 600px;
+            margin-bottom: 18px;
+            font-size: clamp(2.5rem, 5vw, 4.4rem);
+            font-weight: 500;
+            line-height: 1.05;
+            letter-spacing: -0.055em;
+        }
+
+        .intro-copy > p:last-child {
+            max-width: 620px;
+            margin-bottom: 0;
+            color: #47554e;
+            font-size: 1.06rem;
+        }
+
+        .family-link {
+            display: inline-block;
+            padding: 12px 20px;
+            border: 1px solid var(--green);
+            border-radius: 999px;
+            background: var(--green);
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 8px 18px rgb(37 75 61 / 18%);
+            transition: background-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+        }
+
+        .family-link:hover,
+        .family-link:focus-visible {
+            background: var(--green-dark);
+            box-shadow: 0 11px 22px rgb(37 75 61 / 24%);
+            transform: translateY(-2px);
+        }
+
+        .family-photo {
+            min-height: 420px;
+            background:
+                linear-gradient(90deg, rgb(37 75 61 / 8%), transparent 35%),
+                #c4d0c4 url("https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1400&q=85") center 44% / cover no-repeat;
+        }
+
+        main {
+            width: min(1100px, calc(100% - 40px));
+            margin: 0 auto;
+            padding: 76px 0 88px;
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 32px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .section-heading h2 {
+            margin-bottom: 16px;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 500;
+            line-height: 1.15;
+            letter-spacing: -0.04em;
+        }
+
+        .section-heading p {
+            margin-bottom: 18px;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .profiles {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 26px;
+        }
+
+        .profile {
+            min-width: 0;
+            overflow: hidden;
+            border: 1px solid rgb(32 43 40 / 6%);
+            border-radius: 16px;
+            background: #fff;
+            box-shadow: 0 8px 24px rgb(32 43 40 / 6%);
+            transition: box-shadow 200ms ease, transform 200ms ease;
+        }
+
+        .profile:hover {
+            box-shadow: 0 16px 34px rgb(32 43 40 / 12%);
+            transform: translateY(-5px);
+        }
+
+        .profile img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            background: #e4e8e1;
+        }
+
+        .profile-copy { padding: 19px 20px 22px; }
+
+        .profile h3 {
+            margin-bottom: 5px;
+            font-size: 1.35rem;
+            font-weight: 500;
+            line-height: 1.25;
+        }
+
+        .role {
+            margin-bottom: 12px;
+            color: var(--orange);
+            font-family: Arial, sans-serif;
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .details {
+            margin: 0;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.88rem;
+            line-height: 1.9;
+        }
+
+        .details strong { color: var(--ink); font-weight: 600; }
+
+        footer {
+            padding: 24px clamp(20px, 8vw, 120px);
+            background: var(--green-dark);
+            color: #f3f5ee;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 760px) {
+            .intro { grid-template-columns: 1fr; }
+            .intro-copy { padding: 48px 24px 38px; }
+            .family-photo { min-height: 300px; }
+            .profiles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+            main { padding-top: 46px; }
+        }
+
+        @media (max-width: 480px) {
+            .profiles { grid-template-columns: 1fr; }
+            .profile img { aspect-ratio: 5 / 3; }
+            .section-heading { display: block; }
+            .section-heading p { margin-bottom: 14px; }
+            main { width: min(100% - 32px, 420px); padding-bottom: 56px; }
+            .profile-copy { padding: 17px 18px 20px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header class="intro">
+        <div class="intro-copy">
+            <p class="eyebrow">Keluarga Rafi Bachtiar Adhimukti</p>
+            <h1>Keluarga yang tidak sempurna tapi Terbaik.</h1>
+            <p>Keluarga kami terdiri dari lima orang: ayah, ibu, kakak, saya, dan adik. Kami saling menyayangi, mendukung, dan belajar bersama dalam berbagai keadaan. Ayah dan ibu membimbing keluarga dengan penuh perhatian, sementara kami bertiga sebagai anak terus tumbuh dan saling menjaga. Kebersamaan sederhana, seperti berbincang dan melakukan kegiatan bersama, menjadi hal berharga bagi keluarga kami.</p>
+            <p><a class="family-link" href="#anggota-keluarga">Lihat Data Keluarga</a></p>
+        </div>
+        <div class="family-photo" role="img" aria-label="Sebuah keluarga menghabiskan waktu bersama"></div>
+    </header>
+
+    <main>
+        <section aria-labelledby="anggota-keluarga">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Orang-orang di rumah</p>
+                    <h2 id="anggota-keluarga">Data pribadi anggota keluarga</h2>
+                </div>
+            </div>
+
+            <div class="profiles">
+                <article class="profile">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Foto Ayah" loading="lazy">
+                    <div class="profile-copy">
+                        <h3>Budi Santoso</h3>
+                        <p class="role">Ayah</p>
+                        <p class="details"><strong>Tanggal lahir:</strong> 15 Mei 1979 (47 tahun)<br><strong>Pekerjaan:</strong> Wiraswasta<br><strong>Hobi:</strong>baca berata</p>
+                    </div>
+                </article>
+
+                <article class="profile">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Foto Ibu" loading="lazy">
+                    <div class="profile-copy">
+                        <h3>Siti Aminah</h3>
+                        <p class="role">Ibu</p>
+                        <p class="details"><strong>Tanggal lahir:</strong> 8 Januari 1982 (44 tahun)<br><strong>Pekerjaan:</strong> ibu rumah tangga<br><strong>Hobi:</strong>Masak</p>
+                    </div>
+                </article>
+
+                <article class="profile">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Foto Kakak" loading="lazy">
+                    <div class="profile-copy">
+                        <h3>Dimas Pratama</h3>
+                        <p class="role">Kakak</p>
+                        <p class="details"><strong>Tanggal lahir:</strong> 2 Maret 2004 (22 tahun)<br><strong>pekerjaan:</strong> wiraswasta<br><strong>Hobi:</strong>badminton</p>
+                    </div>
+                </article>
+
+                <article class="profile">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Foto Rafi" loading="lazy">
+                    <div class="profile-copy">
+                        <h3>Rafi Bachtiar Adhimukti</h3>
+                        <p class="role">Saya</p>
+                        <p class="details"><strong>Tanggal lahir:</strong> 17 Juni 2007 (19 tahun)<br><strong>Pendidikan:</strong>Perguruan tinggi<br><strong>Hobi:</strong>Explor hutan</p>
+                    </div>
+                </article>
+
+                <article class="profile">
+                    <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Foto Adik laki-laki" loading="lazy">
+                    <div class="profile-copy">
+                        <h3>yusuf abidal</h3>
+                        <p class="role">Adik</p>
+                        <p class="details"><strong>Tanggal lahir:</strong> 9 September 2014 (12 tahun)<br><strong>Pendidikan:</strong> Sekolah Dasar<br><strong>Hobi:</strong>Futsal</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>Peran AI dalam HTML ini : membantu merapihan struktur dan konten halaman dan juga membantu memberikan ide tantang CSS yang digunakan, disisi lain user belajar bareng dengan AI tentang Bagaimana membangun WEB HTML dengan bagus.</footer>
+</body>
+</html>
